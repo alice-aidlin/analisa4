@@ -78,29 +78,29 @@ def help(func, start, end,n):
     while round(start,2) < end:
         if f(start) * f(next) < 0:
             if n==1:
-                print("x = {}".format(Bisection_Method(func, start, next)))
+                print("x = {}".format(round(Bisection_Method(func, start, next),6)))
             if n == 2:
-                print("x = {}".format(Newton_Raphson(func,func_tag, start, next)))
+                print("x = {}".format(round(Newton_Raphson(func,func_tag, start, next),6)))
             if n == 3:
-                print("x = {}".format(secant_method(func, start, next)))
-        if fn(start)*fn(next) == 0.0 and f(next) == 0.0:
-            print("x = {}".format(next))
-            start += 0.1
-            start=round(start, 2)
-            next += 0.1
-            next=round(next, 2)
+                print("x = {}".format(round(secant_method(func, start, next),6)))
+        if f(start) == 0:
+            print("x = {}".format(start))
+
         start += 0.1
         start=round(start, 2)
         next += 0.1
         next=round(next, 2)
+    if f(end)==0:
+        print("x = {}".format(start))
 
 def main():
 
     choice = int(input("\nIn which way you want to solve :\n1.Bisection Method.\n2.Newton Raphson.\n3.Secant Method.\n"))
 
-    f = x ** 4 + x ** 3 - 3 * x ** 2
-    start= -3
-    end= 2
+    f= x ** 4 + 1 * x ** 3 - 3 * x **2
+
+    start= -4
+    end= 6
 
     if choice == 1:
         help(f, start, end, choice)
