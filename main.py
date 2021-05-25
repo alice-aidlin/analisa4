@@ -91,7 +91,7 @@ def help(func, start, end,n):
         next += 0.1
         next=round(next, 2)
     if f(end)==0:
-        print("x = {}".format(start))
+        print("x = {}".format(end))
 
 def main():
 
@@ -100,7 +100,7 @@ def main():
     f= x ** 4 + 1 * x ** 3 - 3 * x **2
 
     start= -4
-    end= 6
+    end= 4
 
     if choice == 1:
         help(f, start, end, choice)
